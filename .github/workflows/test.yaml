@@ -22,6 +22,7 @@ jobs:
         runs-on: ubuntu-latest
         needs: [lint, unit]
         strategy:
+            fail-fast: false
             matrix:
                 shard: [1, 2, 3, 4]
         steps:
