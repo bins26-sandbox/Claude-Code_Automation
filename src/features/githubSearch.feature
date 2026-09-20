@@ -1,3 +1,5 @@
+# Skipped: fails on CI; depends on the external site github.com
+@Pending
 Feature: Github test
     As a Developer in Test
     I want to search for webdriverio repository
