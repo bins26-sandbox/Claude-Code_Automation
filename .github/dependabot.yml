@@ -7,3 +7,19 @@ updates:
     time: "11:00"
   open-pull-requests-limit: 10
   versioning-strategy: increase-if-necessary
+  groups:
+    minor-and-patch:
+      update-types:
+        - "minor"
+        - "patch"
+
+- package-ecosystem: github-actions
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "11:00"
+  groups:
+    actions-minor-and-patch:
+      update-types:
+        - "minor"
+        - "patch"
