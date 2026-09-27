@@ -3,7 +3,7 @@ description: "sets the node version & initializes core dependencies"
 runs:
     using: composite
     steps:
-        - uses: actions/setup-node@v4
+        - uses: actions/setup-node@v5
           with:
             node-version: 20
 
