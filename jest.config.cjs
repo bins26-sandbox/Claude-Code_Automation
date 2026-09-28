@@ -2,6 +2,11 @@ module.exports = {
     globals: {
         'ts-jest': {
             isolatedModules: true,
+            tsconfig: {
+                module: 'commonjs',
+                moduleResolution: 'node10',
+                ignoreDeprecations: '6.0',
+            },
         },
     },
     testMatch: [
@@ -24,7 +29,7 @@ module.exports = {
         'src/**/*.ts',
         '!**/node_modules/**',
     ],
-    setupFilesAfterEnv: ['./test/setup.js'],
+    setupFilesAfterEnv: ['./test/setup.cjs'],
     roots: [
         'test/',
     ],
