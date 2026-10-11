@@ -47,7 +47,7 @@
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.30.0",
-    "eslint-plugin-wdio": "^8.37.0",
+    "eslint-plugin-wdio": "^10.0.1",
     "http-server": "^14.1.1",
     "jest": "^30.5.2",
     "jest-circus": "^30.5.1",
