@@ -100,6 +100,12 @@ export const config: WebdriverIO.Config = {
     // gets prepended directly.
     baseUrl: 'http://localhost:8080',
     //
+    // webdriverio 10 defaults `$()` to throwing when a selector matches more
+    // than one element. This suite's step definitions (e.g. checkEqualsText)
+    // rely on the pre-v10 behavior of resolving to the first match, so
+    // restore it rather than rewriting every selector across the features.
+    strictSelectors: false,
+    //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
     //
@@ -177,7 +183,9 @@ export const config: WebdriverIO.Config = {
         // <string> (expression) only execute the features or scenarios with
         // tags matching the expression, see
         // https://docs.cucumber.io/tag-expressions/
-        tagExpression: 'not @Pending',
+        // Renamed from `tagExpression` in cucumber-js 13 (@wdio/cucumber-framework 10+):
+        // https://github.com/cucumber/cucumber-js/blob/main/UPGRADING.md#1300
+        tags: 'not @Pending',
         // <boolean> add cucumber tags to feature or scenario name
         tagsInTitle: false,
         // <number> timeout for step definitions

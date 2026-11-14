@@ -9,7 +9,7 @@ export default async (name: string, falseCase: boolean) => {
      * The cookie as retrieved from the browser
      * @type {Object}
      */
-    const cookie = await browser.getCookies(name);
+    const cookie = await browser.getCookies({ name });
 
     if (falseCase) {
         expect(cookie).toHaveLength(

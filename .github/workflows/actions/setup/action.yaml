@@ -5,7 +5,11 @@ runs:
     steps:
         - uses: actions/setup-node@v5
           with:
-            node-version: 20
+            # webdriverio/@wdio/local-runner 10.2.0 requires a Node patch that
+            # fixes a child_process IPC regression (engines: >=22.23.4 <23 ||
+            # >=24.22.1 <25 || >=26.12.1). Node 20 isn't in that list and the
+            # e2e job's workers crash with "Error: write EINVAL" on it.
+            node-version: 24
 
         - name: Cache dependencies
           id: cache
