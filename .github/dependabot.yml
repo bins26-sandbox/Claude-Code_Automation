@@ -8,6 +8,20 @@ updates:
   open-pull-requests-limit: 10
   versioning-strategy: increase-if-necessary
   groups:
+    # Dependabot assigns each dependency to the first group it matches, so
+    # this must come before `minor-and-patch` (which has no name pattern and
+    # would otherwise claim any wdio minor/patch bump first). Grouping the
+    # whole wdio/webdriverio family keeps it bumping in lockstep -- a
+    # mismatched mix of wdio 9.x/10.x versions is what caused
+    # @wdio/local-runner to crash with "Error: write EINVAL" on CI.
+    wdio:
+      patterns:
+        - "@wdio/*"
+        - "webdriverio"
+      update-types:
+        - "major"
+        - "minor"
+        - "patch"
     minor-and-patch:
       update-types:
         - "minor"
