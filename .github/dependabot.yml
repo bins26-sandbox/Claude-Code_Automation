@@ -12,6 +12,20 @@ updates:
       update-types:
         - "minor"
         - "patch"
+  # These majors break the current toolchain:
+  # - eslint 9/10 and eslint-plugin-wdio's eslint-9-only releases drop support
+  #   for the legacy .eslintrc.yaml + eslint-config-airbnb-base setup this
+  #   repo still uses.
+  # - typescript 7 has no @typescript-eslint/eslint-plugin release that
+  #   supports it yet (peer range caps at <6.1.0).
+  # Remove each ignore once the repo migrates off the blocked config/plugin.
+  ignore:
+    - dependency-name: "eslint"
+      update-types: ["version-update:semver-major"]
+    - dependency-name: "eslint-plugin-wdio"
+      update-types: ["version-update:semver-major"]
+    - dependency-name: "typescript"
+      update-types: ["version-update:semver-major"]
 
 - package-ecosystem: github-actions
   directory: "/"
