@@ -54,7 +54,7 @@
     "npm-run-all2": "^9.0.3",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "webdriverio": "9.32.0"
   }
 }
