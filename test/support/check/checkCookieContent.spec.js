@@ -27,7 +27,7 @@ describe('checkCookieContent', () => {
         await checkCookieContent('cookie2', true, '');
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie2');
+        _expect(global.browser.getCookies).toHaveBeenCalledWith({ name: 'cookie2' });
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual).toHaveBeenCalledWith(
@@ -40,7 +40,7 @@ describe('checkCookieContent', () => {
         await checkCookieContent('cookie1', true, 'value2');
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie1');
+        _expect(global.browser.getCookies).toHaveBeenCalledWith({ name: 'cookie1' });
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual).toHaveBeenCalledWith(
@@ -53,7 +53,7 @@ describe('checkCookieContent', () => {
         await checkCookieContent('cookie1', false, 'value2');
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie1');
+        _expect(global.browser.getCookies).toHaveBeenCalledWith({ name: 'cookie1' });
 
         _expect(expectToEqual).toHaveBeenCalledTimes(2);
         _expect(expectToEqual).toHaveBeenCalledWith(

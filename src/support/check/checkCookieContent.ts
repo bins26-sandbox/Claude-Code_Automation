@@ -14,7 +14,7 @@ export default async (
      * The cookie retrieved from the browser object
      * @type {Object}
      */
-    const cookie = (await browser.getCookies(name))[0];
+    const cookie = (await browser.getCookies({ name }))[0];
     expect(cookie.name).toBe(
         name,
         // @ts-expect-error

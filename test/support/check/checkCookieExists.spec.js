@@ -29,7 +29,7 @@ describe('checkCookieExists', () => {
         await checkCookieExists('cookie1', false);
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie1');
+        _expect(global.browser.getCookies).toHaveBeenCalledWith({ name: 'cookie1' });
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual).toHaveBeenCalledWith(
@@ -44,7 +44,7 @@ describe('checkCookieExists', () => {
         await checkCookieExists('cookie2', true);
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie2');
+        _expect(global.browser.getCookies).toHaveBeenCalledWith({ name: 'cookie2' });
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual).toHaveBeenCalledWith(
